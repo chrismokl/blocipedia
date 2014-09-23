@@ -1,0 +1,7 @@
+<%= form_for @wiki do |f|%>
+  <%= f.text_field :title%>
+  <%= f.hidden_field :body, id: 'epiceditor-source'%>
+  <div id="epiceditor"></div>
+  <%= f.submit "Submit Changes", class: 'submit_button'%>
+<% end %>
+

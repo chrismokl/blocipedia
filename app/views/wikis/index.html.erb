@@ -1,0 +1,13 @@
+<% @wikis.each do |wiki| %>
+  <div class="wiki-block">
+    <h1><%= link_to wiki.title, wiki %></h1>
+    <p><%= markdown(wiki.body) %></p>
+    <% if wiki.privacy? %>
+      <h3>Private</h3>
+    <% end %>
+    <% wiki.articles.limit(5).each do |article| %>
+      <h3><%= article.title %></h3>
+      <p><%= article.body %></p>
+    <% end %>
+  </div>
+<% end %>

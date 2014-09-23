@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -27,11 +28,31 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Boostrap
+gem 'bootstrap-sass'
+
+# devise
+gem 'devise'
+
+# redcarpet
+gem 'redcarpet'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
+#pundit
+gem 'pundit', github: 'elabs/pundit'
+
+# stripe
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'figaro'
+
+gem "haml-rails"
+
+gem 'friendly_id', '~> 5.0.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -43,3 +64,11 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rspec-rails'
+
+gem 'epic-editor-rails'
+
+gem 'jquery-turbolinks'
+
+gem 'stripe-ruby-mock', '~> 1.10.1.7'

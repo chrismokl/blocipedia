@@ -1,4 +1,6 @@
 <%= @article.title %>
-<%= @article.body %>
-<%= link_to "Edit", [:edit, @article] %>
-<%= link_to "Delete", @article, method: :delete %>
+<%= markdown(@article.body) %>
+<%= link_to "Edit", [:edit, @wiki, @article] %>
+<%#= link_to "Edit", edit_wiki_article_path(@wiki,@article) %>
+<%= link_to "Delete", [@wiki,@article], method: :delete %>
+<%#= link_to "Delete", wiki_article_path(@wiki,@article), method: :delete %>

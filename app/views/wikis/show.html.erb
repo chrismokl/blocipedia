@@ -1,0 +1,12 @@
+<%= @wiki.title %>
+<%= markdown(@wiki.body) %>
+<%= link_to "Edit", [:edit, @wiki] %>
+<%= link_to "Delete", @wiki, method: :delete %>
+<% @articles.each do |article| %>
+  <h1><%= article.title %></h1>
+  <p><%= markdown(article.body) %></p>
+  
+<% end %>
+
+<%= link_to 'Create new article', new_wiki_article_path(@wiki) %>
+<%= link_to 'Manage Collaboraters', wiki_collaborations_path(@wiki) %>

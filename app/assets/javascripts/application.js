@@ -10,7 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require epiceditor
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  var editor = new EpicEditor({textarea: 'epiceditor-source'}).load();
+});
+

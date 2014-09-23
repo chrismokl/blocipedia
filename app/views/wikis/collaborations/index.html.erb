@@ -1,0 +1,12 @@
+<table class="table table-bordered table-hover table-condensed">
+  <% @users.each do |user| %>
+    <tr>
+      <%= user.email %>
+      <% if Collaboration.where(user_id: user.id, wiki_id: @wiki.id).empty? %>
+        <%= link_to "Add as collaborator", collaborations_path(user_id: user.id, wiki_id: @wiki.id), method: :post %>
+      <% else %>
+        <p>Is already a collaborator</p>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

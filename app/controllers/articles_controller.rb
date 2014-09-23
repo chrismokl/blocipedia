@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
-  def index 
-    @articles = Article.all
+  
+  before_action :set_wiki
+
+  def set_wiki
+    @wiki = Wiki.friendly.find(params[:wiki_id])
   end
 
   def show 
@@ -8,8 +11,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(params.require(:article).permit(:title, :body))
-    redirect_to articles_path
+    @article = @wiki.articles.create(params.require(:article).permit(:title, :body))
+    redirect_to wiki_article_path(@wiki, @article)
   end
 
   def new
@@ -23,13 +26,13 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update_attributes(params.require(:article).permit(:title, :body))
-    redirect_to articles_path
+    redirect_to wiki_article_path(@wiki)
   end
 
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to articles_path
+    redirect_to wiki_articles_path(@wiki)
   end
 
 end
